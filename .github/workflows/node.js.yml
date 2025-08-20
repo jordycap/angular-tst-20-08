@@ -31,7 +31,7 @@ jobs:
         run: npm run lint
     #6. Test
       - name: Test
-        run: npm run test
+        run: npm run test:ci
     #7. Fake deploy
       - name: Fake deploy
         run: echo "Deploy simulated, Build would be deployed here"
