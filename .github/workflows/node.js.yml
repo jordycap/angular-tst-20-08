@@ -27,11 +27,11 @@ jobs:
       - name: Build
         run: npm run build
     #5. Lint
-      - name: Build
+      - name: Lint
         run: npm run lint
     #6. Test
-      - name: Build
-        run: npm run lint
+      - name: Test
+        run: npm run test
     #7. Fake deploy
-      - name: Build
+      - name: Fake deploy
         run: echo "Deploy simulated, Build would be deployed here"
