@@ -73,7 +73,7 @@ jobs:
         with:
           name: Angular Tests
           path: reports/junit/*.xml
-          reporter: jest-junit
+          reporter: java-junit
 
   deploy:
     runs-on: ubuntu-latest
