@@ -59,6 +59,17 @@ jobs:
       #4. Test
       - name: test
         run: npm run test:ci
+      #5. Generate JUnit test results
+      - name: Upload JUnit test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: junit-test-results
+          path: reports/junit/*.xml
+      #6. Upload test results for GitHub Actions
+      - name: Upload test results for GitHub Actions
+        uses: actions/upload-test-report@v1
+        with:
+          test-results-files: reports/junit/*.xml
 
   deploy:
     runs-on: ubuntu-latest
