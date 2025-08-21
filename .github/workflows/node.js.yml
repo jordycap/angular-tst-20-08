@@ -20,12 +20,15 @@ jobs:
     #1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
+        
     #2. Setup node.js
       - name: Setup node.js
         uses: actions/setup-node@v3
+
     #3. Install dependencies
       - name: Install dependencies
         run: npm ci
+
     #4. Build
       - name: Build
         run: npm run build
@@ -37,12 +40,15 @@ jobs:
       #1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
+
       #2. Setup node.js
       - name: Setup node.js
         uses: actions/setup-node@v3
+
       #3. Install dependencies
       - name: Install dependencies
         run: npm ci
+
       #4. Lint
       - name: lint
         run: npm run lint
@@ -54,23 +60,20 @@ jobs:
       #1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
+
       #2. Setup node.js
       - name: Setup node.js
         uses: actions/setup-node@v3
+
       #3. Install dependencies
       - name: Install dependencies
         run: npm ci
+
       #4. Test
       - name: test
         run: npm run test:ci
-      # #5. Generate JUnit test results
-      # - name: Upload JUnit test results
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: junit-test-results
-      #     path: reports/junit/*.xml
 
-      #6. Publish test results
+      #5. Publish test results
       - name: Publish Test Results
         uses: dorny/test-reporter@v1
         if: always() # run even if tests fail
