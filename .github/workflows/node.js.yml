@@ -25,18 +25,9 @@ jobs:
     #4. Build
       - name: Build
         run: npm run build
-    # #5. Lint
-    #   - name: Lint
-    #     run: npm run lint
-    # #6. Test
-    #   - name: Test
-    #     run: npm run test:ci
-    # #7. Fake deploy
-    #   - name: Fake deploy
-    #     run: echo "Deploy simulated, Build would be deployed here"
+   
   lint:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       #1. Checkout code
       - name: Checkout code
@@ -53,7 +44,6 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
     steps:
       #1. Checkout code
       - name: Checkout code
@@ -66,7 +56,7 @@ jobs:
         run: npm ci
       #4. Test
       - name: test
-        run: npm run test
+        run: npm run test:ci
 
   deploy:
     runs-on: ubuntu-latest
