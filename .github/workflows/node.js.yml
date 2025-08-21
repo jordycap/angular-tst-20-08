@@ -65,15 +65,15 @@ jobs:
         with:
           name: junit-test-results
           path: reports/junit/*.xml
-      #6. Upload test results for GitHub Actions
-      - name: Upload test results for GitHub Actions
-        uses: actions/upload-test-report@v1
-        with:
-          test-results-files: reports/junit/*.xml
 
-      - name: Publish test results
-        run: |
-          npx github-actions-ctrf reports/junit/test-results.json
+      #6. Publish test results
+      - name: Publish Test Results
+        uses: dorny/test-reporter@v1
+        if: always() # run even if tests fail
+        with:
+          name: Angular Tests
+          path: reports/junit/*.xml
+          reporter: java-junit
 
   deploy:
     runs-on: ubuntu-latest
