@@ -75,7 +75,7 @@ jobs:
         uses: dorny/test-reporter@v1
         if: always() # run even if tests fail
         with:
-          name: Angular Tests
+          name: Test results
           path: reports/junit/*.xml
           reporter: java-junit
 
